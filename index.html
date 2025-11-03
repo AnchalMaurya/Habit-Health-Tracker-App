@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Health & Habit Tracker</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="left">
+            <img src="logo1.jpg" alt="LOGO"/>
+            <h2><i>Personal Health & Habits Tracker</i></h2>
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="#" id="todayTab" class="active">Today</a></li>
+                <li><a href="#" id="historyTab">History</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- main -->
+    <main class="main">
+        <!-- left-main -->
+        <div class="left-main">
+            <div class="menu" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="menuList" id="sidebar">
+                <ul>
+                    <li id="homeTab"><i class="fa-solid fa-house"></i><a href="#" >Home</a></li>
+                    <li id="healthTab"><i class="fa-solid fa-notes-medical"></i><a href="#">Health</a></li>
+                    <li id="habitTab"><i class="fa-solid fa-person"></i><a href="#">Habits</a></li>
+                    <li id="helpTab"><i class="fa-brands fa-hire-a-helper"></i><a href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- right-main -->
+        <div class="right-main">
+            <!-- Card Area -->
+            <div class="card-area">
+                <div class="card-inner" id="cardInner">
+                    <!-- Home -->
+                    <div class="card-front">
+                        <h2>Welcome to Your Personal Health & Habit Tracker</h2><br>
+                        <p>Stay consistent, stay healthy, and achieve your goals — one habit at a time.</p><br>
+                        <h3>❤️ Track Your Health Easily</h3><br>
+                        <p>Record daily essentials like water intake, sleep hours, workouts and study time.</p><br>
+                        <h3>📅 Build Positive Habits</h3><br>
+                        <p>Create your own habits, mark them as completed and watch yourself grow.</p><br>
+                        <h3>📊 Visualize Your Progress</h3><br>
+                        <p>Reports & charts keep you motivated.</p><br>
+                        <h3>🌟 “Discipline is choosing between what you want now and what you want most.”</h3>
+                    </div>
+                    <!-- Today & History Section -->
+                    <div class="card-back">
+                        <section id="todaySection">
+                            <h2>Today's Tracker</h2>
+                            <div class="today-form">
+                                <input type="text" id="habitInput" placeholder="Add Habits/Task(e.g Drink water, Gym, Sleep, Study...)"/>
+                                <input type="date" id="habitDate"/>
+                                <button id="addBtn">Add</button>
+                                <button id="resetBtn">Reset All</button>
+                            </div>
+                            <ul id="habitList" class="habit-list"></ul>
+                            <div class="progress-circle">
+                                <div class="progress-inner">
+                                    <span id="progressText">0%</span>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- History Section -->
+                        <section id="historySection" class="hidden">
+                            <h2>History</h2>
+                            <button id="backToTodayBtn" class="back-btn">⬅ Back</button>
+                            <div class="history-table-container">
+                                <table class="history-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Habits/Tasks</th>
+                                            <th>Status</th>
+                                            <th>Progress %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTableBody">
+                                        <!-- Filled dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Area -->
+            <div class="health-area hidden" id="healthArea">
+                <div class="health-inner">
+                    <div class="health-flip" id="healthFlip">
+                        <!-- Front -->
+                        <div class="health-front">
+                            <h2>Health Checkups</h2>
+                            <div class="health-cards">
+                                <div class="health-card">
+                                    <h3>🧮 BMI Check</h3><br>
+                                    <p>Calculate your Body Mass Index.</p><br>
+                                    <button class="check-btn" id="bmi-check">Check</button>
+                                </div>
+                                <div class="health-card">
+                                    <h3>💓 HeartBeat Check</h3><br>
+                                    <p>Monitor your heart rate easily.</p><br>
+                                    <button class="check-btn" id="heart-check">Check</button>
+                                </div>
+                            </div>
+                            <button id="backToMainBtn" class="back-btn">⬅ Back</button>
+                        </div>
+
+                        <!-- Back (BMI Calculator) -->
+                        <div class="health-back">
+                            <h2>BMI Calculator</h2>
+                            <form class="bmi-form" id="bmiForm">
+                                <input type="text" id="bmiName" placeholder="Enter Name" required/>
+                                <input type="number" id="bmiAge" placeholder="Enter Age" required/>
+                                <select id="bmiGender">
+                                    <option value="" selected disabled>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <input type="number" id="bmiWeight" placeholder="Weight (kg)" required/>
+                                <input type="number" id="bmiHeight" placeholder="Height (cm)" required/>
+                                <button type="submit" id="bmi-button">Calculate BMI</button>
+                            </form>
+                            <button id="backToHealthBtn" class="back-btn">⬅ Back</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

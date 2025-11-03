@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #31363f;
+    color: #f5f6fa;
+}
+.navbar {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    padding: 15px 20px;
+}
+.left, .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.left img {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+}
+.right ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.right a {
+    color: #f5f6fa;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+.right a:hover,
+.right a.active {
+    background: #43a047;
+}
+
+.main{
+    width:100%;
+    height: 85vh;
+    display: flex;
+}
+.menuList {
+    width: 230px;
+    position: fixed;
+    top: 15vh;
+    left: -230px;
+    margin-top: 3px;
+    width: 230px;
+    height: 84vh;
+    background: #2c3e50;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+/* when active → show sidebar */
+.menuList.active {
+    left: 0;
+}
+
+.menu i {
+    position: fixed;
+    top: 20vh;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100;
+    background: #2c3e50;
+    padding: 8px;
+    border-radius: 6px;
+}
+.menu :hover {
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(255,255,255,0.5);
+}
+.menuList ul {
+    margin-top: 30px;
+    list-style: none;
+    padding: 20px;
+}
+.menuList ul li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+.menuList li:hover {
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(255,255,255,0.5);
+}
+.menuList a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #f5f6fa;
+}
+
+.right-main{
+    height: 85vh;
+    width: 85%;
+    position:absolute;
+    right:0;
+    display: flex;
+    justify-content: center;
+}
+/* Card Flip */
+.card-area,.health-area {
+    height: 75vh;
+    width: 70%;
+    align-self: center;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.card-area.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+.card-front{font-size: 18px;}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #222831;
+    border-radius: 10px;
+    padding: 50px;
+    text-align: center;
+    overflow-y: auto;
+}
+.card-front { transform: rotateY(0deg); }
+.card-back { transform: rotateY(180deg); }
+
+/* Today Form */
+.today-form {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.today-form input, .today-form button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+#habitInput { width: 400px; }
+.today-form button {
+    cursor: pointer;
+    background: #43a047;
+    color: white;
+    transition: 0.3s;
+    width:100px;
+}
+#resetBtn { background: red; }
+.today-form button:hover {
+    opacity: 0.8;
+}
+
+/* Habit List */
+.habit-list {
+    list-style: none;
+    margin: 15px auto;
+    padding: 0;
+    width: 80%;
+    max-width: 500px;
+}
+.habit-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+}
+.habit-list li span.completed {
+    text-decoration: line-through;
+    color: #aaa;
+}
+.habit-list button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Progress Circle */
+.progress-circle {
+    margin: 30px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#43a047 0deg, #444 0deg);
+    box-shadow: 0px 2px 8px 6px rgba(70, 69, 69, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress-inner {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #222831;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#progressText {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f5f6fa;
+}
+
+/* Hide utility */
+.hidden {
+    display: none;
+}
+
+/* History Table */
+.history-table-container {
+    width: 90%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background: #2c3e50;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.history-table th, .history-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
+    color: #f5f6fa;
+}
+
+.history-table th {
+    background: #43a047;
+    font-weight: bold;
+}
+
+.history-table tr:nth-child(even) {
+    background: #34495e;
+}
+
+.back-btn {
+    background: #43a047;
+    color: white;
+    border: none;
+    position: absolute;
+    left:20%;
+    bottom:10%;
+    padding: 8px 16px;
+    margin: 10px 0 20px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.back-btn:hover {
+    opacity: 0.8;
+    background: #388e3c;
+}
+
+.health-area.hidden {
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.health-inner{
+    height: 75vh;
+    width: 100%;
+    align-self: center;
+    background-color: #222831;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+.health-cards {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.health-card {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    height: 180px;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
+}
+
+.health-card:hover {
+    background: #324556;
+    box-shadow: 0px 2px 8px 10px rgba(39, 37, 37, 0.9);
+}
+
+.health-card h3 {
+    margin-bottom: 10px;
+}
+
+.check-btn {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background: #43a047;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.check-btn:hover {
+    opacity: 0.8;
+    background: #388e3c;
+}
+
+/* flipper */
+.health-flip {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s ease-in;
+    transform-style: preserve-3d;
+}
+.health-flip.flipped {
+    transform: rotateY(180deg);
+}
+.health-front, .health-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #222831;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    overflow-y: auto;
+}
+.health-front { transform: rotateY(0deg); }
+.health-back { transform: rotateY(180deg); }
+.bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+.bmi-form input, .bmi-form select, .bmi-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+#bmi-button{
+    background-color: #43a047;
+    color: #f5f6fa;
+}
+#backToHealthBtn{
+    left:20%;
+    bottom:10%;
+}

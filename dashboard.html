@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>BMI Dashboard</h2>
+    <div class="charts">
+      <div id="userDetails" class="user-details"></div>
+      <div class="chart-box">
+        <h3>BMI Categories</h3>
+        <canvas id="bmiPie"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Your BMI</h3>
+        <canvas id="bmiGauge"></canvas>
+        <p id="bmiText" class="bmi-text"></p>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div style="text-align:center; margin-top: 20px;">
+      <button id="backBtn" class="back-btn">⬅ Back</button>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
