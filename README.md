@@ -40,13 +40,18 @@ This app helps users build positive habits, track their daily activities, and vi
 
 ## 📁 Folder Structure
 
-habit-health-tracker/
+habit-health-tracker
+
 ├── index.html
+
 ├── style.css
+
 ├── script.js
-│
+
 ├── dashboard.html
+
 ├── dashboard.css
+
 ├── dashboard.js
 
 ## ⚙️ Installation & Setup
@@ -89,6 +94,10 @@ Building responsive UIs using CSS Flexbox/Grid
 
 
 ## 🧑‍💻 Author
+
 Anchal Maurya
+
 **📧 anchalmaurya2408@gmail.com**
+
 **🔗 LinkedIn: https://www.linkedin.com/in/maurya-aanchal/**
+
